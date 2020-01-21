@@ -15,11 +15,11 @@ const Home = () => {
     setErrorMessage(null);
     fetch(`https://www.omdbapi.com/?s=${searchText}&apikey=${omdbApiKey}`)
       .then(response => response.json())
-      .then(({ Error, Response, Search }) => {
+      .then(({ Error: ErrorInfo, Response, Search }) => {
         if (Response === "True") {
           setShows(Search);
         } else {
-          setErrorMessage(Error);
+          setErrorMessage(ErrorInfo);
         }
         setLoading(false);
       });
