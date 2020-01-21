@@ -73,44 +73,54 @@ const ShowInformation = () => {
                             </h2>
                             {
                                 Director
-                                && <span><strong>Director: </strong>{Director}</span>
+                                && <><strong>Director: </strong>{Director}<br /></>
                             }
-                            <br />
                             {
                                 Production
-                                && <span><strong>Production: </strong>{Production}</span>
+                                && <><strong>Production: </strong>{Production}<br /></>
                             }
-                            <br />
                             {
                                 Genre
-                                && <span><strong>Genre: </strong>{Genre}</span>
+                                && <><strong>Genre: </strong>{Genre}<br /></>
                             }
-                            <br />
                             {
                                 Rated
-                                && <span><strong>Rated: </strong>{Rated}</span>
+                                && <><strong>Rated: </strong>{Rated}<br /></>
                             }
-                            <br />
                             {
                                 Released
-                                && <span><strong>Released: </strong>{Released}</span>
+                                && <><strong>Released: </strong>{Released}<br /></>
                             }
-                            <br />
                             {
                                 Runtime
-                                && <span><strong>Runtime: </strong>{Runtime}</span>
+                                && <><strong>Runtime: </strong>{Runtime}<br /></>
                             }
-                            <br />
                             {
                                 Actors
-                                && <span><strong>Actors: </strong>{Actors}</span>
+                                && <><strong>Actors: </strong>{Actors}<br /></>
                             }
-                            <br />
                             {
                                 Awards
-                                && <span><strong>Awards: </strong>{Awards}</span>
+                                && <><strong>Awards: </strong>{Awards}<br /></>
                             }
-                            <br />
+                            {
+                                Ratings
+                                && (
+                                    <>
+                                        <strong>Ratings: </strong>
+                                        <ul>
+                                        {
+                                            Ratings.map(({ Source = '', Value = '' }, index) => (
+                                                <li key={`rating-${index}`}>
+                                                    {Source} -> <em>{Value}</em>
+                                                </li>
+                                            ))
+                                        }
+                                        </ul>
+                                        <br />
+                                    </>
+                                )
+                            }
                             <br />
                             <em>{Plot}</em>
                         </div>
