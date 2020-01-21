@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Nav from '../components/nav';
+import { omdbApiKey } from '../omdbApiKey';
 
 const ShowInformation = () => {
     const {
@@ -9,7 +10,6 @@ const ShowInformation = () => {
             id = '',
         } = {},
     } = useRouter();
-    const apiKey = '55cfee44';
     const [loading, setLoading] = useState(false);
     const [showInformation, setShowInformation] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);
@@ -17,7 +17,7 @@ const ShowInformation = () => {
     useEffect(() => {
         setLoading(true);
         setErrorMessage(null);
-        fetch(`https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`)
+        fetch(`https://www.omdbapi.com/?i=${id}&apikey=${omdbApiKey}`)
             .then(response => response.json())
             .then((response = {}) => {
                 if (response.Response === "True") {

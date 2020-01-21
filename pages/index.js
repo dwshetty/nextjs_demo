@@ -3,9 +3,9 @@ import Head from 'next/head';
 
 import Search from './search';
 import Show from './show';
+import { omdbApiKey } from '../omdbApiKey';
 
 const Home = () => {
-  const apiKey = '55cfee44';
   const [loading, setLoading] = useState(false);
   const [shows, setShows] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -13,7 +13,7 @@ const Home = () => {
   const fetchShows = (searchText) => {
     setLoading(true);
     setErrorMessage(null);
-    fetch(`https://www.omdbapi.com/?s=${searchText}&apikey=${apiKey}`)
+    fetch(`https://www.omdbapi.com/?s=${searchText}&apikey=${omdbApiKey}`)
       .then(response => response.json())
       .then(({ Error, Response, Search }) => {
         if (Response === "True") {
