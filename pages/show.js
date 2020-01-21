@@ -31,6 +31,7 @@ const Show = ({
                 max-width: 200px;
             }
             .show img {
+                max-width: 200px;
                 max-height: 200px;
             }
             a {

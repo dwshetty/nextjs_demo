@@ -112,7 +112,7 @@ const ShowInformation = () => {
                                         {
                                             Ratings.map(({ Source = '', Value = '' }, index) => (
                                                 <li key={`rating-${index}`}>
-                                                    {Source} -> <em>{Value}</em>
+                                                    {Source} - <em>{Value}</em>
                                                 </li>
                                             ))
                                         }
