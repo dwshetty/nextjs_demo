@@ -20,7 +20,6 @@ const ShowInformation = () => {
         fetch(`https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`)
             .then(response => response.json())
             .then((response = {}) => {
-                console.log(response);
                 if (response.Response === "True") {
                     setShowInformation(response);
                 } else {
@@ -31,6 +30,8 @@ const ShowInformation = () => {
         }, [id]);
 
     const {
+        Actors = '',
+        Awards = '',
         Director = '',
         Genre = '',
         imdbRating = '',
@@ -70,17 +71,45 @@ const ShowInformation = () => {
                                     {imdbRating}/10
                                 </span>
                             </h2>
-                            <strong>Director: </strong>{Director}
+                            {
+                                Director
+                                && <span><strong>Director: </strong>{Director}</span>
+                            }
                             <br />
-                            <strong>Production: </strong>{Production}
+                            {
+                                Production
+                                && <span><strong>Production: </strong>{Production}</span>
+                            }
                             <br />
-                            <strong>Genre: </strong>{Genre}
+                            {
+                                Genre
+                                && <span><strong>Genre: </strong>{Genre}</span>
+                            }
                             <br />
-                            <strong>Rated: </strong>{Rated}
+                            {
+                                Rated
+                                && <span><strong>Rated: </strong>{Rated}</span>
+                            }
                             <br />
-                            <strong>Released: </strong>{Released}
+                            {
+                                Released
+                                && <span><strong>Released: </strong>{Released}</span>
+                            }
                             <br />
-                            <strong>Runtime: </strong>{Runtime}
+                            {
+                                Runtime
+                                && <span><strong>Runtime: </strong>{Runtime}</span>
+                            }
+                            <br />
+                            {
+                                Actors
+                                && <span><strong>Actors: </strong>{Actors}</span>
+                            }
+                            <br />
+                            {
+                                Awards
+                                && <span><strong>Awards: </strong>{Awards}</span>
+                            }
                             <br />
                             <br />
                             <em>{Plot}</em>

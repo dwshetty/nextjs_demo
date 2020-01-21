@@ -13,7 +13,7 @@ const Show = ({
         <div className="show">
             <figure>
                 <img
-                    alt={`The show titled: ${Title}`}
+                    alt={`Image not available for: ${Title}`}
                     src={Poster}
                 />
                 <figcaption>
