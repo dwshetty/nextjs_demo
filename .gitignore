@@ -18,7 +18,6 @@
 # misc
 .DS_Store
 .env*
-omdbApikey.js
 
 # debug
 *.log*
